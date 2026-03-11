@@ -1,1 +1,1 @@
-# ha-addons
+# Home Assistant Apps Coda's Repository
