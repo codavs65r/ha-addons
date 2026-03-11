@@ -13,3 +13,5 @@ RUN \
 
 # Copy data
 COPY rootfs /
+
+EXPOSE 9103
