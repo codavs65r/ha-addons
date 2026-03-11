@@ -12,7 +12,7 @@ host_network: true
 host_dbus: true
 init: false
 ports:
-  9103/tcp: 9103
+  9103/tcp: null
 ports_description:
   9103/tcp: microhttpd web server for Prometheus exposition format
 map:
