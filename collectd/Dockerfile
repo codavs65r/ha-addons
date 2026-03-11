@@ -9,7 +9,8 @@ RUN \
         collectd-write_prometheus \
         collectd-sensors \
         collectd-disk \
-        collectd-smart
+        collectd-smart \
+        libmicrohttpd
 
 # Copy data
 COPY rootfs /
