@@ -1,0 +1,4 @@
+# https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
+name: Home Asistant Apps Coda's Repository
+url: 'https://github.com/codavs65r/ha-addons'
+aintainer: "codavs65r

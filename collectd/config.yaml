@@ -1,0 +1,17 @@
+name: "collectd"
+version: "1.0.0"
+slug: folder
+description: >-
+  "Collectd is a daemon which collects system performance statistics periodically and provides mechanisms to store the values in a variety of ways, for example in RRD files."
+arch:
+  - amd64
+  - aarch64
+url: "https://github.com/codavs65r/ha-addons/tree/main/collectd"
+startup: "services"
+ports:
+  9103/tcp:
+ports_description:
+  9103/tcp: "microhttpd web server for Prometheus exposition format"
+map:
+  - type: homeassistant_config
+    path: /config
