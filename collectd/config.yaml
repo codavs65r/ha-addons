@@ -7,6 +7,7 @@ arch:
   - amd64
   - aarch64
 url: https://github.com/codavs65r/ha-addons/collectd
+hassio_role: manager
 ports:
   9103/tcp:
 ports_description:
