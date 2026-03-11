@@ -14,5 +14,13 @@ ports:
   9103/tcp:9103
 ports_description:
   9103/tcp: microhttpd web server for Prometheus exposition format
+map:
+  - addons:rw
+  - all_addon_configs:rw
+  - backup:rw
+  - homeassistant_config:rw
+  - media:rw
+  - share:rw
+  - ssl:rw
 uart: true
 startup: services
