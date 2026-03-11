@@ -8,6 +8,8 @@ arch:
   - aarch64
 url: https://github.com/codavs65r/ha-addons/collectd
 hassio_role: manager
+host_dbus: true
+init: false
 ports:
   9103/tcp:9103
 ports_description:
