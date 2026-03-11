@@ -8,11 +8,8 @@ arch:
   - aarch64
 url: https://github.com/codavs65r/ha-addons/collectd
 hassio_role: manager
-hassio_api: true
-hassio_role: manager
 host_dbus: true
 image: homeassistant/{arch}-addon-collectd
-ingress: true
 init: false
 ports:
   9103/tcp:
