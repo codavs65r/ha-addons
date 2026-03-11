@@ -1,8 +1,6 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-EXPOSE 9103
-
 # Setup base
 RUN \
     set -x \
