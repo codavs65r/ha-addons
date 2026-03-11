@@ -6,7 +6,7 @@ description: >-
 arch:
   - amd64
   - aarch64
-url: https://github.com/codavs65r/ha-addons/tree/main/collectd
+url: https://github.com/codavs65r/ha-addons/collectd
 hassio_role: manager
 startup: services
 ports:
