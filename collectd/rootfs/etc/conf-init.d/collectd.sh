@@ -15,3 +15,6 @@ sed -i \
     -e "s/{{graphite_prefix}}/${GRAPHITE_PREFIX}/g" \
     -e "s/{{prometheus_port}}/${PROMETHEUS_PORT}/g" \
     /etc/collectd/collectd.conf
+
+
+bashio::log.info "Service setup applied"
