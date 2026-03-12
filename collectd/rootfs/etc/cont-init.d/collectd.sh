@@ -16,11 +16,4 @@ sed -i \
     -e "s/{{prometheus_port}}/${PROMETHEUS_PORT}/g" \
     /etc/collectd/collectd.conf
 
-bashio::log.info "Hostname set to ${HA_HOSTNAME}"
-bashio::log.info "Graphite host set to ${GRAPHITE_HOST}"
-bashio::log.info "Graphite prefix set to ${GRAPHITE_PREFIX}"
-bashio::log.info "Prometheus exporter port set to ${PROMETHEUS_PORT}"
-
-bashio::log.info "$(cat /etc/collectd/collectd.conf)"
-
 bashio::log.info "Service setup applied"
