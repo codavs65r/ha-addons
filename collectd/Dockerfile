@@ -6,11 +6,9 @@ RUN \
     set -x \
     && apk add --no-cache \
         collectd \
-        collectd-write_prometheus \
         collectd-sensors \
         collectd-disk \
-        collectd-smart \
-        libmicrohttpd
+        collectd-smart
 
 # Copy data
 COPY rootfs /

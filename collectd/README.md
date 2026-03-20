@@ -18,4 +18,5 @@ Collectd is a daemon which collects system performance statistics periodically a
 - uptime
 - users
 - write_graphite
-- write_prometheus
+
+If you to export date to Prometheus, you have setup a graphite-exporter server.
