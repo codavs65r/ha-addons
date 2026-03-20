@@ -7,13 +7,15 @@
 HA_HOSTNAME=$(bashio::config 'hostname')
 GRAPHITE_HOST=$(bashio::config 'graphite_host')
 GRAPHITE_PREFIX=$(bashio::config 'graphite_prefix')
-PROMETHEUS_PORT=$(bashio::config 'prometheus_port')
+GRAPHITE_EXPORTER_HOST=$(bashio::config 'graphite-exporter_host')
+GRAPHITE_EXPORTER_PORT=$(bashio::config 'graphite-exporter_port')
 
 sed -i \
     -e "s/{{hostname}}/${HA_HOSTNAME}/g" \
     -e "s/{{graphite_host}}/${GRAPHITE_HOST}/g" \
     -e "s/{{graphite_prefix}}/${GRAPHITE_PREFIX}/g" \
-    -e "s/{{prometheus_port}}/${PROMETHEUS_PORT}/g" \
+    -e "s/{{graphite-exporter_host}}/${GRAPHITE_EXPORTER_HOST}/g" \
+    -e "s/{{graphite-exporter_port}}/${GRAPHITE_EXPORTER_PORT}/g" \
     /etc/collectd/collectd.conf
 
 bashio::log.info "Service setup applied"
