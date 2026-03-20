@@ -1,5 +1,5 @@
 name: collectd
-version: 0.3.2
+version: 0.3.3
 slug: collectd
 description: >-
   Collectd is a daemon which collects system performance statistics periodically and provides mechanisms to store the values in a variety of ways, for example in RRD files.
@@ -26,11 +26,11 @@ options:
   hostname: homeassistant
   graphite_host: localhost
   graphite_prefix: collectd
-  graphite-exporter_host: localhost
-  graphite-exporter_port: 9109
+  graphite_exporter_host: localhost
+  graphite_exporter_port: 9109
 schema:
   hostname: str
   graphite_host: str
   graphite_prefix: str
-  graphite-exporter_host: str
-  graphite-exporter_port: int
+  graphite_exporter_host: str
+  graphite_exporter_port: int
