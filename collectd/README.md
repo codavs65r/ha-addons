@@ -5,6 +5,7 @@ Collectd is a daemon which collects system performance statistics periodically a
 ## Modules enabled
 
 - cpu
+- cpufreq
 - df
 - disk
 - entropy
