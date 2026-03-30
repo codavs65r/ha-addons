@@ -20,12 +20,12 @@ sed -i \
     -e "s/{{graphite_exporter_port}}/${GRAPHITE_EXPORTER_PORT}/g" \
     /etc/collectd/collectd.conf
 
-if [ "${ENABLE_GRAPHITE_PLUGIN}" = "true" ]; then
+if [ "${ENABLE_GRAPHITE_PLUGIN}" == "true" ]; then
     bashio::log.info "Enabling Graphite plugin"
     sed -i "s/#LoadPlugin graphite/LoadPlugin graphite/g" /etc/collectd/collectd.conf
 fi
 
-if [ "${ENABLE_WRITE_PROMETHEUS_PLUGIN}" = "true" ]; then
+if [ "${ENABLE_WRITE_PROMETHEUS_PLUGIN}" == "true" ]; then
     bashio::log.info "Enabling Prometheus plugin"
     sed -i "s/#LoadPlugin write_prometheus/LoadPlugin write_prometheus/g" /etc/collectd/collectd.conf
 fi
