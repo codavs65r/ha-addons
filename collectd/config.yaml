@@ -1,5 +1,5 @@
 name: collectd
-version: 0.4.1
+version: 0.4.2
 slug: collectd
 description: >-
   Collectd is a daemon which collects system performance statistics periodically and provides mechanisms to store the values in a variety of ways, for example in RRD files.
@@ -34,6 +34,7 @@ options:
   graphite_exporter_host: localhost
   graphite_exporter_port: 9109
   enable_write_prometheus_plugin: false
+  prometheus_port: 9103
 schema:
   hostname: str
   enable_graphite_plugin: bool
@@ -42,3 +43,4 @@ schema:
   graphite_exporter_host: str
   graphite_exporter_port: int
   enable_write_prometheus_plugin: bool
+  prometheus_port: int
