@@ -25,14 +25,14 @@ sed -i \
 if [ "${ENABLE_WRITE_GRAPHITE_PLUGIN}" == "true" ]
 then
     sed -i \
-    -e "s/^#LoadPlugin write_graphite/LoadPlugin write_graphite/g" \
+    "s/^#LoadPlugin write_graphite/LoadPlugin write_graphite/g" \
     /etc/collectd/collectd.conf
 fi
 
 if [ "${ENABLE_WRITE_PROMETHEUS_PLUGIN}" == "true" ]
 then
     sed -i \
-    -e "s/^#LoadPlugin write_prometheus/LoadPlugin write_prometheus/g" \
+    "s/^#LoadPlugin write_prometheus/LoadPlugin write_prometheus/g" \
     /etc/collectd/collectd.conf
 fi
 
