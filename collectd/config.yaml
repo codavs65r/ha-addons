@@ -1,5 +1,5 @@
 name: collectd
-version: 0.3.4
+version: 0.4.0
 slug: collectd
 description: >-
   Collectd is a daemon which collects system performance statistics periodically and provides mechanisms to store the values in a variety of ways, for example in RRD files.
@@ -22,15 +22,24 @@ map:
 uart: true
 udev: true
 startup: services
+ports:
+  9103/tcp: 9103
+ports_description:
+  9103/tcp: write_prometheus plugin
 options:
   hostname: homeassistant
+  enable_graphite_plugin: false
   graphite_host: localhost
   graphite_prefix: collectd
   graphite_exporter_host: localhost
   graphite_exporter_port: 9109
+  enable_write_prometheus_plugin: false
 schema:
   hostname: str
+  enable_graphite_plugin: bool
   graphite_host: str
   graphite_prefix: str
+  enable_graphite_exporter: bool
   graphite_exporter_host: str
   graphite_exporter_port: int
+  enable_write_prometheus_plugin: bool

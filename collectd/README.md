@@ -2,7 +2,7 @@
 
 Collectd is a daemon which collects system performance statistics periodically and provides mechanisms to store the values in a variety of ways, for example in RRD files.
 
-## Modules enabled
+## Modules enabled by default
 
 - cpu
 - cpufreq
@@ -18,6 +18,3 @@ Collectd is a daemon which collects system performance statistics periodically a
 - swap
 - uptime
 - users
-- write_graphite
-
-If you to export date to Prometheus, you have to setup a graphite-exporter server.
