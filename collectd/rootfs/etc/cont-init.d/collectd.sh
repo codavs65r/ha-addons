@@ -24,16 +24,12 @@ sed -i \
 
 if [ "${ENABLE_WRITE_GRAPHITE_PLUGIN}" == "true" ]
 then
-    sed -i \
-    "s/^#LoadPlugin write_graphite/LoadPlugin write_graphite/g" \
-    /etc/collectd/collectd.conf
+    sed -i "s/^#LoadPlugin write_graphite/LoadPlugin write_graphite/g" /etc/collectd/collectd.conf
 fi
 
 if [ "${ENABLE_WRITE_PROMETHEUS_PLUGIN}" == "true" ]
 then
-    sed -i \
-    "s/^#LoadPlugin write_prometheus/LoadPlugin write_prometheus/g" \
-    /etc/collectd/collectd.conf
+    sed -i "s/^#LoadPlugin write_prometheus/LoadPlugin write_prometheus/g" /etc/collectd/collectd.conf
 fi
 
 bashio::log.info "Service setup applied"
