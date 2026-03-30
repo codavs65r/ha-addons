@@ -22,6 +22,8 @@ sed -i \
     -e "s/{{prometheus_port}}/${PROMETHEUS_PORT}/g" \
     /etc/collectd/collectd.conf
 
+bashio::log.info "Enable Graphite plugin: ${ENABLE_GRAPHITE_PLUGIN}"
+
 if [ "${ENABLE_GRAPHITE_PLUGIN}" == "true" ]; then
     bashio::log.info "Enabling Graphite plugin"
     sed -i "s/^#LoadPlugin graphite/LoadPlugin graphite/g" /etc/collectd/collectd.conf
