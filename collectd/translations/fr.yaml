@@ -43,3 +43,5 @@ configuration:
     nom: Port du plugin write_rometheus
     description: >-
       Le numéro de port pour exposer les métriques collectd que Prometheus doit récupérer.
+network:
+  9103/tcp: Port du plugin write_rometheus

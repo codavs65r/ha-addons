@@ -43,3 +43,5 @@ configuration:
     name: write_prometheus plugin port
     description: >-
       The port number to expose collectd metrics for Prometheus to scrape.
+network:
+  9103/tcp: write_prometheus plugin port
