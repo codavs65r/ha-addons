@@ -1,5 +1,5 @@
 name: collectd
-version: 0.5.1
+version: 0.5.2
 slug: collectd
 description: >-
   Collectd is a daemon which collects system performance statistics periodically and provides mechanisms to store the values in a variety of ways, for example in RRD files.
@@ -29,8 +29,8 @@ ports_description:
 options:
   hostname: homeassistant
   enable_mqtt_plugin: false
-  mqtt_user: null
-  mqtt_password: null 
+  mqtt_user: homeassistant
+  mqtt_password: homeassistant
   enable_write_graphite_plugin: false
   graphite_host: localhost
   graphite_prefix: collectd
