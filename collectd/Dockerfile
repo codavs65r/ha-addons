@@ -8,7 +8,8 @@ RUN \
         collectd \
         collectd-sensors \
         collectd-disk \
-        collectd-smart
+        collectd-smart \
+        collectd-mqtt
 
 # Copy data
 COPY rootfs /
