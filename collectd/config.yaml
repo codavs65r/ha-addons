@@ -39,7 +39,7 @@ options:
   enable_write_prometheus_plugin: false
   prometheus_port: 9103
 schema:
-  hostname: 
+  hostname: str
   enable_mqtt_plugin: bool
   mqtt_user: str
   mqtt_password: str
