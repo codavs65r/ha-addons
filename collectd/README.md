@@ -1,4 +1,4 @@
-# Home Assistant App: collectd
+# Home Assistant App: Collectd
 
 Collectd is a daemon which collects system performance statistics periodically and provides mechanisms to store the values in a variety of ways, for example in RRD files.
 
@@ -21,15 +21,19 @@ Collectd is a daemon which collects system performance statistics periodically a
 
 ## MQTT
 
-Collectd will publish data to MQTT server. You can view the data with by riunning this command on your Home Assistant server.
+Collectd will publish data to MQTT server. You can view the data with by running this command on your Home Assistant server.
 
     mosquitto_sub -h core-mosquitto -p 1883 -u <USER> -P <PASSWORD> -t collectd/# -v
 
-You can acces the data by creating sensors in configration.yaml file. For example add this line in configuration.yaml file.
+Here an example of the data displayed.
+
+    collectd/<HOSTNAME>/cpu-0/cpu-user 1774973019.970:6.50015158620266
+
+You can access the data by creating sensors in configration.yaml file. For example add this line in configuration.yaml file.
 
     mqtt: !include collectd.yaml
 
-And create collectd.yaml file with this kind on content.
+Then create collectd.yaml file with this kind of content.
 
     sensor:
       - name: CPU 0 user
