@@ -1,5 +1,5 @@
 name: collectd
-version: 0.5.4
+version: 0.5.5
 slug: collectd
 description: >-
   Collectd is a daemon which collects system performance statistics periodically and provides mechanisms to store the values in a variety of ways, for example in RRD files.
@@ -28,6 +28,8 @@ ports_description:
   9103/tcp: write_prometheus plugin
 services:
     - mqtt:want
+discovery:
+  - mqtt
 options:
   hostname: homeassistant
   enable_mqtt_plugin: false
