@@ -1,0 +1,45 @@
+configuration:
+  hostname:
+    nom: Nom d'hôte
+    description: >-
+      Le nom d’hôte à signaler dans les métriques collectd.
+  enable_mqtt_plugin:
+    nom: Activer le plugin MQTT
+    description: >-
+      Activer le plugin MQTT pour envoyer des métriques collectd à un courtier MQTT.
+  mqtt_user:
+    nom: Nom d'utilisateur MQTT
+    description: >-
+      Le nom d’utilisateur à utiliser pour l’authentification avec le courtier MQTT.
+  mqtt_password:
+    nom: Mot de passe MQTT
+    description: >-
+      Le mot de passe à utiliser pour l’authentification avec le courtier MQTT.
+  enable_write_graphite_plugin:
+    nom: Activer le plugin write_graphite
+    description: >-
+      Activer le plugin write_graphite pour envoyer des métriques collectd à un serveur Graphite.
+  graphite_host:
+    nom: Graphite hôte
+    description: >-
+      Le nom d’hôte ou l’adresse IP du serveur Graphite à qui envoyer les métriques collectd.
+  graphite_prefix:
+    nom: Préfixe de graphite
+    description: >-
+      Le préfixe à utiliser pour les métriques collectd envoyées au serveur Graphite.
+  graphite_exporter_host:
+    nom: Graphite Exporter hôte
+    description: >-
+      Le nom d’hôte ou l’adresse IP de Graphite Exporter à qui envoyer les métriques collectd.
+  graphite_exporter_port:
+    nom: Graphite Exporter port
+    description: >-
+      Le numéro de port de Graphite Exporter à qui envoyer les métriques collectd.
+  enable_write_prometheus_plugin:
+    nom: Activer le plugin write_prometheus
+    description: >-
+      Activer le plugin write_prometheus pour exposer les métriques collectd afin que Prometheus puisse les récupérer.
+  prometheus_port:
+    nom: Port du plugin write_rometheus
+    description: >-
+      Le numéro de port pour exposer les métriques collectd que Prometheus doit récupérer.

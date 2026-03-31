@@ -42,5 +42,5 @@ And create collectd.yaml file with this kind on content.
         device:
           identifiers: device_id
           name: Device Name
-          model: Devie Model
+          model: Device Model
           manufacturer: Device Manufacturer

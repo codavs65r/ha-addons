@@ -1,0 +1,45 @@
+configuration:
+  hostname:
+    name: Hostname
+    description: >-
+      The hostname to report in collectd metrics.
+  enable_mqtt_plugin:
+    name: Enable MQTT plugin
+    description: >-
+      Whether to enable the MQTT plugin to send collectd metrics to an MQTT broker.
+  mqtt_user:
+    name: MQTT username
+    description: >-
+      The username to use for authenticating with the MQTT broker.
+  mqtt_password:
+    name: MQTT password
+    description: >-
+      The password to use for authenticating with the MQTT broker.
+  enable_write_graphite_plugin:
+    name: Enable write_graphite plugin
+    description: >-
+      Whether to enable the write_graphite plugin to send collectd metrics to a Graphite server.
+  graphite_host:
+    name: Graphite host
+    description: >-
+      The hostname or IP address of the Graphite server to send collectd metrics to.
+  graphite_prefix:
+    name: Graphite prefix
+    description: >-
+      The prefix to use for collectd metrics sent to the Graphite server.
+  graphite_exporter_host:
+    name: Graphite Exporter host
+    description: >-
+      The hostname or IP address of the Graphite Exporter to send collectd metrics to.
+  graphite_exporter_port:
+    name: Graphite Exporter port
+    description: >-
+      The port number of the Graphite Exporter to send collectd metrics to.
+  enable_write_prometheus_plugin:
+    name: Enable write_prometheus plugin
+    description: >-
+      Whether to enable the write_prometheus plugin to expose collectd metrics for Prometheus to scrape.
+  prometheus_port:
+    name: write_prometheus plugin port
+    description: >-
+      The port number to expose collectd metrics for Prometheus to scrape.
