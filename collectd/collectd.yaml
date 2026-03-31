@@ -1,0 +1,552 @@
+sensor:
+# CPU
+  - name: CPU 0 user
+    state_topic: collectd/denethor/cpu-0/cpu-user
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_0_user
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: CPU 0 system
+    state_topic: collectd/denethor/cpu-0/cpu-system
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_0_system
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX      
+  - name: CPU 0 wait
+    state_topic: collectd/denethor/cpu-0/cpu-wait
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_0_wait
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX    
+  - name: CPU 0 nice
+    state_topic: collectd/denethor/cpu-0/cpu-nice
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_0_nice
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX        
+  - name: CPU 0 interrupt
+    state_topic: collectd/denethor/cpu-0/cpu-interrupt
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_0_interrupt
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX      
+  - name: CPU 0 softirq
+    state_topic: collectd/denethor/cpu-0/cpu-softirq
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_0_softirq
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX        
+  - name: CPU 0 idle
+    state_topic: collectd/denethor/cpu-0/cpu-idle
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_0_idle
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: CPU 0 steal
+    state_topic: collectd/denethor/cpu-0/cpu-steal
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_0_steal
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX        
+  - name: CPU 1 user
+    state_topic: collectd/denethor/cpu-1/cpu-user
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_1_user
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: CPU 1 system
+    state_topic: collectd/denethor/cpu-1/cpu-system
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_1_system
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX      
+  - name: CPU 1 wait
+    state_topic: collectd/denethor/cpu-1/cpu-wait
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_1_wait
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX    
+  - name: CPU 1 nice
+    state_topic: collectd/denethor/cpu-1/cpu-nice
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_1_nice
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX        
+  - name: CPU 1 interrupt
+    state_topic: collectd/denethor/cpu-1/cpu-interrupt
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_1_interrupt
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX      
+  - name: CPU 1 softirq
+    state_topic: collectd/denethor/cpu-1/cpu-softirq
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_1_softirq
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX        
+  - name: CPU 1 idle
+    state_topic: collectd/denethor/cpu-1/cpu-idle
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_1_idle
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: CPU 1 steal
+    state_topic: collectd/denethor/cpu-1/cpu-steal
+    unit_of_measurement: '%'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_1_steal
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX            
+
+# CPU frequency
+  - name: CPU 0 frequency
+    state_topic: collectd/denethor/cpufreq-0/cpufreq
+    unit_of_measurement: GHz
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0) / 1000000000) | round(1) }}"
+    unique_id: cpu_0_frequency
+    state_class: measurement
+    device_class: frequency
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: CPU 1 frequency
+    state_topic: collectd/denethor/cpufreq-1/cpufreq
+    unit_of_measurement: GHz
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0) / 1000000000) | round(1) }}"
+    unique_id: cpu_1_frequency
+    state_class: measurement
+    device_class: frequency
+    icon: 'mdi:cpu-64-bit'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+
+# Root FS
+  - name: Root FS used
+    state_topic: collectd/denethor/df-root/df_complex-used
+    unit_of_measurement: 'GB'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0) / 1000000000) | round(1) }}"
+    unique_id: root_fs_used
+    state_class: measurement
+    device_class: data_size
+    icon: 'mdi:harddisk'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: Root FS free
+    state_topic: collectd/denethor/df-root/df_complex-free
+    unit_of_measurement: 'GB'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0) / 1000000000) | round(1) }}"
+    unique_id: root_fs_free
+    state_class: measurement
+    device_class: data_size
+    icon: 'mdi:harddisk'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX   
+  - name: Root FS reserved
+    state_topic: collectd/denethor/df-root/df_complex-reserved
+    unit_of_measurement: 'GB'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0) / 1000000000) | round(1) }}"
+    unique_id: root_fs_reserved
+    state_class: measurement
+    device_class: data_size
+    icon: 'mdi:harddisk'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX          
+
+# RAM
+  - name: RAM buffered
+    state_topic: collectd/denethor/memory/memory-buffered
+    unit_of_measurement: MB
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0) / 1000000) | round(1) }}"
+    unique_id: ram_buffered
+    state_class: measurement
+    device_class: data_size
+    icon: 'mdi:memory'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: RAM free
+    state_topic: collectd/denethor/memory/memory-free
+    unit_of_measurement: MB
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0) / 1000000) | round(1) }}"
+    unique_id: ram_free
+    state_class: measurement
+    device_class: data_size
+    icon: 'mdi:memory'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: RAM cached
+    state_topic: collectd/denethor/memory/memory-cached
+    unit_of_measurement: MB
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0) / 1000000) | round(1) }}"
+    unique_id: ram_cached
+    state_class: measurement
+    device_class: data_size
+    icon: 'mdi:memory'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: RAM used
+    state_topic: collectd/denethor/memory/memory-used
+    unit_of_measurement: MB
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0) / 1000000) | round(1) }}"
+    unique_id: ram_used
+    state_class: measurement
+    device_class: data_size
+    icon: 'mdi:memory'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+
+# Swap
+  - name: Swap used
+    state_topic: collectd/denethor/swap/swap-used
+    unit_of_measurement: MB
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0) / 1000000) | round(1) }}"
+    unique_id: swap_used
+    state_class: measurement
+    device_class: data_size
+    icon: 'mdi:swap-horizontal-bold'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: Swap free
+    state_topic: collectd/denethor/swap/swap-free
+    unit_of_measurement: MB
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0) / 1000000) | round(1) }}"
+    unique_id: swap_free
+    state_class: measurement
+    device_class: data_size
+    icon: 'mdi:swap-horizontal-bold'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: Swap cached
+    state_topic: collectd/denethor/swap/swap-cached
+    unit_of_measurement: MB
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0) / 1000000) | round(1) }}"
+    unique_id: swap_cached
+    state_class: measurement
+    device_class: data_size
+    icon: 'mdi:swap-horizontal-bold'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+
+# System Load
+  - name: L1
+    unit_of_measurement: load
+    state_topic: collectd/denethor/load/load
+    value_template: "{{ (value.split(':')[1] | float(0)) | round(1) }}"
+    unique_id: L1
+    state_class: measurement
+    icon: 'mdi:gauge'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: L5
+    unit_of_measurement: load
+    state_topic: collectd/denethor/load/load
+    value_template: "{{ (value.split(':')[2] | float(0)) | round(1) }}"
+    unique_id: L5
+    state_class: measurement
+    icon: 'mdi:gauge'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: L15
+    unit_of_measurement: load
+    state_topic: collectd/denethor/load/load
+    value_template: "{{ (value.split(':')[3].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: L15
+    state_class: measurement
+    icon: 'mdi:gauge'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+
+# Temperature
+  - name: Temp 1  
+    state_topic: collectd/denethor/sensors-coretemp-isa-0000/temperature-temp1
+    unit_of_measurement: °C
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: temp_1
+    state_class: measurement
+    device_class: temperature
+    icon: 'mdi:thermometer'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: Temp 2
+    state_topic: collectd/denethor/sensors-coretemp-isa-0000/temperature-temp2
+    unit_of_measurement: °C
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: temp_2
+    state_class: measurement
+    device_class: temperature
+    icon: 'mdi:thermometer'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX      
+  - name: Temp 3
+    state_topic: collectd/denethor/sensors-coretemp-isa-0000/temperature-temp3
+    unit_of_measurement: °C
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: temp_3
+    state_class: measurement
+    device_class: temperature
+    icon: 'mdi:thermometer'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+
+# Interface
+  - name: Interface enp2s0 RX
+    state_topic: collectd/denethor/interface-enp2s0/if_octets
+    unit_of_measurement: 'B/s'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0) * 8) | round(1) }}"
+    unique_id: enp2s0_rx
+    state_class: measurement
+    device_class: data_rate
+    icon: 'mdi:ethernet'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: Interface enp2s0 TX
+    state_topic: collectd/denethor/interface-enp2s0/if_octets
+    unit_of_measurement: 'B/s'
+    value_template: "{{ (value.split(':')[2].split('\0')[0] | float(0) * 8) | round(1) }}"
+    unique_id: enp2s0_tx
+    state_class: measurement
+    device_class: data_rate
+    icon: 'mdi:ethernet'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+
+# Disk
+  - name: Disk mmcblk0p8 read
+    state_topic: collectd/denethor/disk-mmcblk0p8/disk_octets
+    unit_of_measurement: 'B/s'
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0) * 8) | round(1) }}"
+    unique_id: mmcblk0p8_read
+    state_class: measurement
+    device_class: data_rate
+    icon: 'mdi:harddisk'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: Disk mmcblk0p8 write
+    state_topic: collectd/denethor/disk-mmcblk0p8/disk_octets
+    unit_of_measurement: 'B/s'
+    value_template: "{{ (value.split(':')[2].split('\0')[0] | float(0) * 8) | round(1) }}"
+    unique_id: mmcblk0p8_write
+    state_class: measurement
+    device_class: data_rate
+    icon: 'mdi:harddisk'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+
+# Processes
+  - name: Processes running
+    state_topic: collectd/denethor/processes/ps_state-running
+    value_template: "{{ value.split(':')[1].split('\0')[0] | int(0) }}"
+    unique_id: processes_running
+    state_class: measurement
+    icon: 'mdi:application'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: Processes sleeping
+    state_topic: collectd/denethor/processes/ps_state-sleeping
+    value_template: "{{ value.split(':')[1].split('\0')[0] | int(0) }}"
+    unique_id: processes_sleeping
+    state_class: measurement
+    icon: 'mdi:application'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: Processes stopped
+    state_topic: collectd/denethor/processes/ps_state-stopped
+    value_template: "{{ value.split(':')[1].split('\0')[0] | int(0) }}"
+    unique_id: processes_stopped
+    state_class: measurement
+    icon: 'mdi:application'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+  - name: Processes zombies
+    state_topic: collectd/denethor/processes/ps_state-zombies
+    value_template: "{{ value.split(':')[1].split('\0')[0] | int(0) }}"
+    unique_id: processes_zombie
+    state_class: measurement
+    icon: 'mdi:application'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+
+# Uptime
+  - name: Uptime
+    state_topic: collectd/denethor/uptime/uptime
+    device_class: timestamp
+    value_template: "{{ as_datetime( (value.split(':')[0] | float ) - (value.split(':')[1].split('\0')[0] | float ) ) }}"
+    unique_id: ap_uptime
+    icon: 'mdi:clock'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
