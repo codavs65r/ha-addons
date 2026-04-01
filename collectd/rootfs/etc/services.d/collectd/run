@@ -6,7 +6,7 @@
 # ==============================================================================
 
 bashio::log.info "Service starting"
-exec /usr/sbin/collectd -f &
+exec /usr/sbin/collectd
 
 ENABLE_MQTT_PLUGIN=$(bashio::config 'enable_mqtt_plugin')
 if [ "${ENABLE_MQTT_PLUGIN}" == "true" ]
