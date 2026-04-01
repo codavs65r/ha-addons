@@ -28,7 +28,7 @@ do
     if [[ "$node_name" =~ ^cpu-[0-9] ]]
     then      
         bashio::log.info "Processing metric: $metric ($node_name/$metric_name)"
-        data="{\"name\": \"${node_name} ${metric_name}\", \"state_topic\": \"$metric\", \"unique_id\": \"${node_name}_${metric_name}\", \"value_template\": \"{{ (value.split(':')[1].split('\\0')[0] | float(0)) | round(1) }}\", \"state_class\": \"measurement\", \"icon\": \"mdi:cpu-64-bit\", \"device\": $device}"
+        data="{\"name\": \"${node_name} ${metric_name}\", \"state_topic\": \"$metric\", \"unique_id\": \"${node_name}_${metric_name}\", \"unit_of_measurement\": \"%\", \"value_template\": \"{{ (value.split(':')[1].split('\\0')[0] | float(0)) | round(1) }}\", \"state_class\": \"measurement\", \"icon\": \"mdi:cpu-64-bit\", \"device\": $device}"
         bashio::log.info "mosquitto_pub -r -h core-mosquitto -p 1883 -u $MQTT_USER -P $MQTT_PASSWORD -t $metric -m '$data'"
         mosquitto_pub -r -h core-mosquitto -p 1883 -u $MQTT_USER -P $MQTT_PASSWORD -t $metric -m '$data'
     fi
