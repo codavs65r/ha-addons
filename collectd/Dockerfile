@@ -10,7 +10,7 @@ RUN \
         collectd-disk \
         collectd-smart \
         collectd-mqtt \
-        mosquitos-clients
+        mosquitto-clients
 
 # Copy data
 COPY rootfs /
