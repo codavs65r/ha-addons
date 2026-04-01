@@ -5,5 +5,9 @@
 # Start collectd service
 # ==============================================================================
 
-bashio::log.info "Service starting"
-exec /usr/sbin/collectd -f
+ENABLE_MQTT_PLUGIN=$(bashio::config 'enable_mqtt_plugin')
+if [ "${ENABLE_MQTT_PLUGIN}" == "true" ]
+then
+    bashio::log.info "Creating MQTT sensors"
+    /opt/bin/mqtt_sensors.sh
+fi  
