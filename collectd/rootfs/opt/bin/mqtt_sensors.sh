@@ -14,6 +14,12 @@ HA_HOSTNAME=$(bashio::config 'hostname')
 MQTT_USER=$(bashio::config 'mqtt_user')
 MQTT_PASSWORD=$(bashio::config 'mqtt_password')
 
+ping core-mosquitto -c 1
+ping localhost -c 1
+ping denethor -c 1
+
+
+
 bashio::log.info "Getting metrics from MQTT topic: collectd/${HA_HOSTNAME}/#"
 mosquitto_sub -h core-mosquitto -p 1883 -u ${MQTT_USER} -P ${MQTT_PASSWORD} -t collectd/${HA_HOSTNAME}/# -v -W 5 | awk '{print $1}' | sort | uniq | grep '^collectd' > /var/tmp/collectd.mqtt.txt
 
