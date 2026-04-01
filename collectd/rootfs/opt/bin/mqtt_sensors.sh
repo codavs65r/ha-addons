@@ -23,13 +23,14 @@ device="{\"identifiers\": \"collectd\", \"name\": \"Collectd\", \"model\": \"$HA
 
 for metric in $metrics
 do
-    node_name=`echo $metric | cut -d'/' -f3 | sed 's/-/_/g'`
-    metric_name=`echo $metric | cut -d'/' -f4 | sed 's/-/_/g'`
+    node_name=`echo $metric | cut -d'/' -f3`
+    metric_name=`echo $metric | cut -d'/' -f4`
+    unique_id=`echo "${node_name}_${metric_name}" | sed 's/-/_/g'`
     if [[ "$node_name" =~ ^cpu-[0-9] ]]
     then      
         bashio::log.info "Processing metric: $metric ($node_name/$metric_name)"
-        data="{\"name\": \"${node_name} ${metric_name}\", \"state_topic\": \"$metric\", \"unique_id\": \"${node_name}_${metric_name}\", \"unit_of_measurement\": \"%\", \"value_template\": \"{{ value.split(':')[1] | round(1) }}\", \"state_class\": \"measurement\", \"icon\": \"mdi:cpu-64-bit\", \"device\": $device}"
-        bashio::log.info "mosquitto_pub -r -h core-mosquitto -p 1883 -u $MQTT_USER -P $MQTT_PASSWORD -t $metric -m '$data'"
-        mosquitto_pub -r -h core-mosquitto -p 1883 -u $MQTT_USER -P $MQTT_PASSWORD -t $metric -m '$data'
+        data="{\"name\": \"${node_name} ${metric_name}\", \"state_topic\": \"$metric\", \"unique_id\": \"${unique_id}\", \"unit_of_measurement\": \"%\", \"value_template\": \"{{ value.split(':')[1] | round(1) }}\", \"state_class\": \"measurement\", \"icon\": \"mdi:cpu-64-bit\", \"device\": $device}"
+        bashio::log.info "mosquitto_pub -r -h core-mosquitto -p 1883 -u $MQTT_USER -P $MQTT_PASSWORD -t \"$metric\" -m \"$data\""
+        mosquitto_pub -r -h core-mosquitto -p 1883 -u $MQTT_USER -P $MQTT_PASSWORD -t "$metric" -m "$data"
     fi
 done
