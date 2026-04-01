@@ -9,7 +9,8 @@ RUN \
         collectd-sensors \
         collectd-disk \
         collectd-smart \
-        collectd-mqtt
+        collectd-mqtt \
+        mosquitos-clients
 
 # Copy data
 COPY rootfs /
