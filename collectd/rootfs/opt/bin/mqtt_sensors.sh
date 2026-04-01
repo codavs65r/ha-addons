@@ -19,7 +19,7 @@ mosquitto_sub -h core-mosquitto -p 1883 -u "${MQTT_USER}" -P "${MQTT_PASSWORD}" 
 
 cat /var/tmp/collectd.mqtt.txt
 
-metrics=`cat /var/tmp/collectd.mqtt.txt)`
+metrics=`cat /var/tmp/collectd.mqtt.txt`
 bashio::log.info "$metrics"
 
 for metric in $metrics
