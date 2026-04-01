@@ -25,7 +25,7 @@ for metric in $metrics
 do
     node_name=`echo $metric | cut -d'/' -f3`
     metric_name=`echo $metric | cut -d'/' -f4`
-    if [[ $node_name =~ "^cpu-[0-9]$" ]]
+    if [[ "$node_name" =~ ^cpu-[0-9] ]]
     then      
         bashio::log.info "Processing metric: $metric ($node_name/$metric_name)"
         data="{\"name\": \"${node_name} ${metric_name}\", \"state_topic\": \"$metric\", \"unique_id\": \"${node_name}_${metric_name}\", \"value_template\": \"{{ (value.split(':')[1].split('\\0')[0] | float(0)) | round(1) }}\", \"state_class\": \"measurement\", \"icon\": \"mdi:cpu-64-bit\", \"device\": $device}"
