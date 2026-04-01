@@ -19,7 +19,7 @@ mosquitto_sub -h core-mosquitto -p 1883 -u ${MQTT_USER} -P ${MQTT_PASSWORD} -t c
 
 metrics=`cat /var/tmp/collectd.mqtt.txt`
 
-device='{"identifiers": "collectd", "name": "Collectd", "model": "${HA_HOSTNAME}"}'
+device="{\"identifiers\": \"collectd\", \"name\": \"Collectd\", \"model\": \"$HA_HOSTNAME\"}"
 
 for metric in $metrics
 do
