@@ -8,6 +8,5 @@
 ENABLE_MQTT_PLUGIN=$(bashio::config 'enable_mqtt_plugin')
 if [ "${ENABLE_MQTT_PLUGIN}" == "true" ]
 then
-    bashio::log.info "Creating MQTT sensors"
     /opt/bin/mqtt_sensors.sh
 fi  

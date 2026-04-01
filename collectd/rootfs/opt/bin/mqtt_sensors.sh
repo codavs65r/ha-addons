@@ -17,13 +17,13 @@ MQTT_PASSWORD=$(bashio::config 'mqtt_password')
 bashio::log.info "Getting metrics from MQTT topic: collectd/${HA_HOSTNAME}/#"
 mosquitto_sub -h core-mosquitto -p 1883 -u "${MQTT_USER}" -P "${MQTT_PASSWORD}" -t collectd/"${HA_HOSTNAME}"/# -v -W 5 | awk '{print $1}' | sort | uniq > /var/tmp/collectd.mqtt.txt
 
-metrics=$(cat /var/tmp/collectd.mqtt.txt)
+metrics=`cat /var/tmp/collectd.mqtt.txt)`
 bashio::log.info "Metrics found: $metrics"
 
 for metric in $metrics
 do
-    node_name=$(echo "$metric" | cut -d'/' -f3)
-    metric_name=$(echo "$metric" | cut -d'/' -f3)
+    node_name=`echo $metric | cut -d'/' -f3`
+    metric_name=`echo $metric | cut -d'/' -f3`
     if [ "$node_name" == "cpu-"* ]
     then      
         bashio::log.info "Processing metric: $node_name/$metric_name"
