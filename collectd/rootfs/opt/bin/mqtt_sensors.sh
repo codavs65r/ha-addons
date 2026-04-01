@@ -15,10 +15,12 @@ MQTT_USER=$(bashio::config 'mqtt_user')
 MQTT_PASSWORD=$(bashio::config 'mqtt_password')
 
 bashio::log.info "Getting metrics from MQTT topic: collectd/${HA_HOSTNAME}/#"
-mosquitto_sub -h core-mosquitto -p 1883 -u "${MQTT_USER}" -P "${MQTT_PASSWORD}" -t collectd/"${HA_HOSTNAME}"/# -v -W 5 | awk '{print $1}' | sort | uniq > /var/tmp/collectd.mqtt.txt
+mosquitto_sub -h core-mosquitto -p 1883 -u "${MQTT_USER}" -P "${MQTT_PASSWORD}" -t collectd/"${HA_HOSTNAME}"/# -v -W 5 | awk '{print $1}' | sort | uniq | grep '^collectd' > /var/tmp/collectd.mqtt.txt
+
+cat /var/tmp/collectd.mqtt.txt
 
 metrics=`cat /var/tmp/collectd.mqtt.txt)`
-bashio::log.info "Metrics found: $metrics"
+bashio::log.info "$metrics"
 
 for metric in $metrics
 do
