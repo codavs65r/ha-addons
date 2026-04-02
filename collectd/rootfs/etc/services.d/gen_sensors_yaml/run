@@ -15,7 +15,10 @@ then
     exit 0
 fi
 
-ls /opt/config/
+bashio::log.info "Local"
+ls
+bashio::log.info "Root"
+ls /
 
 exit 0
 

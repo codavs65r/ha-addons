@@ -2,7 +2,7 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 # Setup base
-RUN --mount=type=bind,source=.,target=/opt/config \
+RUN \
     set -x \
     && apk add --no-cache \
         collectd \
