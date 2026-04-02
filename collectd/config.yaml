@@ -67,9 +67,9 @@ schema:
   enable_processes_plugin: bool
   enable_sensors_plugin: bool
   enable_smart_plugin: bool
-  enable_swap_plugin: true
-  enable_uptime_plugin: true
-  enable_users_plugin: true  
+  enable_swap_plugin: bool
+  enable_uptime_plugin: bool
+  enable_users_plugin: bool
   enable_mqtt_plugin: bool
   mqtt_user: str?
   mqtt_password: str?
