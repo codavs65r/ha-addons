@@ -3,105 +3,125 @@ configuration:
     name: Hostname
     description: >-
       The hostname to report in collectd metrics.
-  enable_cpu_plugin:
-    name: Enable CPU plugin
+  default_plugins:
+    name: Default plugins
     description: >-
-      Whether to enable the CPU plugin to collect CPU metrics.
-  enable_cpufreq_plugin:
-    name: Enable CPU Frequency plugin
+      A list of default plugins to enable in collectd. These plugins will be enabled by default when the add-on is started, but can be overridden by the user configuration.
+    fields:
+      enable_cpu_plugin:
+        name: Enable CPU plugin
+        description: >-
+          Whether to enable the CPU plugin to collect CPU metrics.
+      enable_cpufreq_plugin:
+        name: Enable CPU Frequency plugin
+        description: >-
+          Whether to enable the CPU Frequency plugin to collect CPU frequency metrics.
+      enable_df_plugin:
+        name: Enable DF plugin
+        description: >-
+          Whether to enable the DF plugin to collect disk free space metrics.
+      enable_disk_plugin:
+        name: Enable Disk plugin
+        description: >-
+          Whether to enable the Disk plugin to collect disk I/O metrics.
+      enable_entropy_plugin:
+        name: Enable Entropy plugin
+        description: >-
+          Whether to enable the Entropy plugin to collect system entropy metrics.
+      enable_interface_plugin:
+        name: Enable Interface plugin
+        description: >-
+          Whether to enable the Interface plugin to collect network interface metrics.
+      enable_irq_plugin:
+        name: Enable IRQ plugin
+        description: >-
+          Whether to enable the IRQ plugin to collect interrupt request metrics.
+      enable_load_plugin:
+        name: Enable Load plugin
+        description: >-
+          Whether to enable the Load plugin to collect system load metrics.
+      enable_memory_plugin:
+        name: Enable Memory plugin
+        description: >-
+          Whether to enable the Memory plugin to collect memory usage metrics.
+      enable_processes_plugin:
+        name: Enable Processes plugin
+        description: >-
+          Whether to enable the Processes plugin to collect process metrics.
+      enable_sensors_plugin:
+        name: Enable Sensors plugin
+        description: >-
+          Whether to enable the Sensors plugin to collect hardware sensor metrics.
+      enable_smart_plugin:
+        name: Enable SMART plugin
+        description: >-
+          Whether to enable the SMART plugin to collect disk health metrics.
+      enable_swap_plugin:
+        name: Enable Swap plugin
+        description: >-
+          Whether to enable the Swap plugin to collect swap usage metrics.
+      enable_uptime_plugin:
+        name: Enable Uptime plugin
+        description: >-
+          Whether to enable the Uptime plugin to collect system uptime metrics.
+      enable_users_plugin:
+        name: Enable Users plugin
+        description: >-
+          Whether to enable the Users plugin to collect logged in users metrics.      
+  mqtt_plugin:
+    name: MQTT plugin
     description: >-
-      Whether to enable the CPU Frequency plugin to collect CPU frequency metrics.
-  enable_df_plugin:
-    name: Enable DF plugin
+      Configuration for the MQTT plugin to send collectd metrics to an MQTT broker.
+    fields:
+      enable_mqtt_plugin:
+        name: Enable MQTT plugin
+        description: >-
+          Whether to enable the MQTT plugin to send collectd metrics to an MQTT broker.
+      mqtt_user:
+        name: MQTT username
+        description: >-
+          The username to use for authenticating with the MQTT broker.
+      mqtt_password:
+        name: MQTT password
+        description: >-
+          The password to use for authenticating with the MQTT broker.
+  write_graphite_plugin:
+    name: write_graphite plugin
     description: >-
-      Whether to enable the DF plugin to collect disk free space metrics.
-  enable_disk_plugin:
-    name: Enable Disk plugin
+      Configuration for the write_graphite plugin to send collectd metrics to a Graphite server.
+    fields:
+      enable_write_graphite_plugin:
+        name: Enable write_graphite plugin
+        description: >-
+          Whether to enable the write_graphite plugin to send collectd metrics to a Graphite server.
+      graphite_host:
+        name: Graphite host
+        description: >-
+          The hostname or IP address of the Graphite server to send collectd metrics to.
+      graphite_prefix:
+        name: Graphite prefix
+        description: >-
+          The prefix to use for collectd metrics sent to the Graphite server.
+      graphite_exporter_host:
+        name: Graphite Exporter host
+        description: >-
+          The hostname or IP address of the Graphite Exporter to send collectd metrics to.
+      graphite_exporter_port:
+        name: Graphite Exporter port
+        description: >-
+          The port number of the Graphite Exporter to send collectd metrics to.
+  write_prometheus_plugin:
+    name: write_prometheus plugin
     description: >-
-      Whether to enable the Disk plugin to collect disk I/O metrics.
-  enable_entropy_plugin:
-    name: Enable Entropy plugin
-    description: >-
-      Whether to enable the Entropy plugin to collect system entropy metrics.
-  enable_interface_plugin:
-    name: Enable Interface plugin
-    description: >-
-      Whether to enable the Interface plugin to collect network interface metrics.
-  enable_irq_plugin:
-    name: Enable IRQ plugin
-    description: >-
-      Whether to enable the IRQ plugin to collect interrupt request metrics.
-  enable_load_plugin:
-    name: Enable Load plugin
-    description: >-
-      Whether to enable the Load plugin to collect system load metrics.
-  enable_memory_plugin:
-    name: Enable Memory plugin
-    description: >-
-      Whether to enable the Memory plugin to collect memory usage metrics.
-  enable_processes_plugin:
-    name: Enable Processes plugin
-    description: >-
-      Whether to enable the Processes plugin to collect process metrics.
-  enable_sensors_plugin:
-    name: Enable Sensors plugin
-    description: >-
-      Whether to enable the Sensors plugin to collect hardware sensor metrics.
-  enable_smart_plugin:
-    name: Enable SMART plugin
-    description: >-
-      Whether to enable the SMART plugin to collect disk health metrics.
-  enable_swap_plugin:
-    name: Enable Swap plugin
-    description: >-
-      Whether to enable the Swap plugin to collect swap usage metrics.
-  enable_uptime_plugin:
-    name: Enable Uptime plugin
-    description: >-
-      Whether to enable the Uptime plugin to collect system uptime metrics.
-  enable_users_plugin:
-    name: Enable Users plugin
-    description: >-
-      Whether to enable the Users plugin to collect logged in users metrics.      
-  enable_mqtt_plugin:
-    name: Enable MQTT plugin
-    description: >-
-      Whether to enable the MQTT plugin to send collectd metrics to an MQTT broker.
-  mqtt_user:
-    name: MQTT username
-    description: >-
-      The username to use for authenticating with the MQTT broker.
-  mqtt_password:
-    name: MQTT password
-    description: >-
-      The password to use for authenticating with the MQTT broker.
-  enable_write_graphite_plugin:
-    name: Enable write_graphite plugin
-    description: >-
-      Whether to enable the write_graphite plugin to send collectd metrics to a Graphite server.
-  graphite_host:
-    name: Graphite host
-    description: >-
-      The hostname or IP address of the Graphite server to send collectd metrics to.
-  graphite_prefix:
-    name: Graphite prefix
-    description: >-
-      The prefix to use for collectd metrics sent to the Graphite server.
-  graphite_exporter_host:
-    name: Graphite Exporter host
-    description: >-
-      The hostname or IP address of the Graphite Exporter to send collectd metrics to.
-  graphite_exporter_port:
-    name: Graphite Exporter port
-    description: >-
-      The port number of the Graphite Exporter to send collectd metrics to.
-  enable_write_prometheus_plugin:
-    name: Enable write_prometheus plugin
-    description: >-
-      Whether to enable the write_prometheus plugin to expose collectd metrics for Prometheus to scrape.
-  prometheus_port:
-    name: write_prometheus plugin port
-    description: >-
-      The port number to expose collectd metrics for Prometheus to scrape.
+      Configuration for the write_prometheus plugin to expose collectd metrics for Prometheus to scrape.
+    fields:
+      enable_write_prometheus_plugin:
+        name: Enable write_prometheus plugin
+        description: >-
+          Whether to enable the write_prometheus plugin to expose collectd metrics for Prometheus to scrape.
+      prometheus_port:
+        name: write_prometheus plugin port
+        description: >-
+          The port number to expose collectd metrics for Prometheus to scrape.
 network:
   9103/tcp: write_prometheus plugin port

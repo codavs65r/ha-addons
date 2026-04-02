@@ -1,5 +1,5 @@
 name: Collectd
-version: 2026.4.2
+version: 2026.4.3
 slug: collectd
 description: >-
   Collectd is a daemon which collects system performance statistics periodically and provides mechanisms to store the values in a variety of ways, for example in RRD files.
@@ -28,55 +28,63 @@ services:
     - mqtt:want
 options:
   hostname: homeassistant
-  enable_cpu_plugin: true
-  enable_cpufreq_plugin: true
-  enable_df_plugin: true
-  enable_disk_plugin: true
-  enable_entropy_plugin: true
-  enable_interface_plugin: true
-  enable_irq_plugin: true
-  enable_load_plugin: true
-  enable_memory_plugin: true
-  enable_processes_plugin: true
-  enable_sensors_plugin: true
-  enable_smart_plugin: true
-  enable_swap_plugin: true
-  enable_uptime_plugin: true
-  enable_users_plugin: true
-  enable_mqtt_plugin: false
-  mqtt_user: homeassistant
-  mqtt_password: homeassistant
-  enable_write_graphite_plugin: false
-  graphite_host: localhost
-  graphite_prefix: collectd
-  graphite_exporter_host: localhost
-  graphite_exporter_port: 9109
-  enable_write_prometheus_plugin: false
-  prometheus_port: 9103
+  default_plugins:
+    - enable_cpu_plugin: true
+      enable_cpufreq_plugin: true
+      enable_df_plugin: true
+      enable_disk_plugin: true
+      enable_entropy_plugin: true
+      enable_interface_plugin: true
+      enable_irq_plugin: true
+      enable_load_plugin: true
+      enable_memory_plugin: true
+      enable_processes_plugin: true
+      enable_sensors_plugin: true
+      enable_smart_plugin: true
+      enable_swap_plugin: true
+      enable_uptime_plugin: true
+      enable_users_plugin: true
+  mqtt_plugin:
+    - enable_mqtt_plugin: false
+      mqtt_user: homeassistant
+      mqtt_password: homeassistant
+  write_graphite_plugin:
+    - enable_write_graphite_plugin: false
+      graphite_host: localhost
+      graphite_prefix: collectd
+      graphite_exporter_host: localhost
+      graphite_exporter_port: 9109
+  write_prometheus_plugin:
+    - enable_write_prometheus_plugin: false
+      prometheus_port: 9103
 schema:
   hostname: str
-  enable_cpu_plugin: bool
-  enable_cpufreq_plugin: bool
-  enable_df_plugin: bool
-  enable_disk_plugin: bool
-  enable_entropy_plugin: bool
-  enable_interface_plugin: bool
-  enable_irq_plugin: bool
-  enable_load_plugin: bool
-  enable_memory_plugin: bool
-  enable_processes_plugin: bool
-  enable_sensors_plugin: bool
-  enable_smart_plugin: bool
-  enable_swap_plugin: bool
-  enable_uptime_plugin: bool
-  enable_users_plugin: bool
-  enable_mqtt_plugin: bool
-  mqtt_user: str?
-  mqtt_password: str?
-  enable_write_graphite_plugin: bool
-  graphite_host: str?
-  graphite_prefix: str?
-  graphite_exporter_host: str?
-  graphite_exporter_port: int?
-  enable_write_prometheus_plugin: bool
-  prometheus_port: int?
+  default_plugins:
+    - enable_cpu_plugin: bool
+      enable_cpufreq_plugin: bool
+      enable_df_plugin: bool
+      enable_disk_plugin: bool
+      enable_entropy_plugin: bool
+      enable_interface_plugin: bool
+      enable_irq_plugin: bool
+      enable_load_plugin: bool
+      enable_memory_plugin: bool
+      enable_processes_plugin: bool
+      enable_sensors_plugin: bool
+      enable_smart_plugin: bool
+      enable_swap_plugin: bool
+      enable_uptime_plugin: bool
+      enable_users_plugin: bool
+  mqtt_plugin:
+    - enable_mqtt_plugin: bool
+      mqtt_user: str?
+      mqtt_password: str?
+  write_graphite_plugin:
+    - enable_write_graphite_plugin: bool
+      graphite_host: str?
+      graphite_prefix: str?
+      graphite_exporter_host: str?
+      graphite_exporter_port: int?
+  write_prometheus_plugin:
+    - enable_write_prometheus_plugin: bool
+      prometheus_port: int?
