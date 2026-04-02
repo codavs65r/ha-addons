@@ -17,6 +17,8 @@ fi
 
 ls /opt/config/
 
+exit 0
+
 
 if [ -f "/opt/config/collectd.yaml" ]
 then
