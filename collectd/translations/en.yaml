@@ -3,6 +3,66 @@ configuration:
     name: Hostname
     description: >-
       The hostname to report in collectd metrics.
+  enable_cpu_plugin:
+    name: Enable CPU plugin
+    description: >-
+      Whether to enable the CPU plugin to collect CPU metrics.
+  enable_cpufreq_plugin:
+    name: Enable CPU Frequency plugin
+    description: >-
+      Whether to enable the CPU Frequency plugin to collect CPU frequency metrics.
+  enable_df_plugin:
+    name: Enable DF plugin
+    description: >-
+      Whether to enable the DF plugin to collect disk free space metrics.
+  enable_disk_plugin:
+    name: Enable Disk plugin
+    description: >-
+      Whether to enable the Disk plugin to collect disk I/O metrics.
+  enable_entropy_plugin:
+    name: Enable Entropy plugin
+    description: >-
+      Whether to enable the Entropy plugin to collect system entropy metrics.
+  enable_interface_plugin:
+    name: Enable Interface plugin
+    description: >-
+      Whether to enable the Interface plugin to collect network interface metrics.
+  enable_irq_plugin:
+    name: Enable IRQ plugin
+    description: >-
+      Whether to enable the IRQ plugin to collect interrupt request metrics.
+  enable_load_plugin:
+    name: Enable Load plugin
+    description: >-
+      Whether to enable the Load plugin to collect system load metrics.
+  enable_memory_plugin:
+    name: Enable Memory plugin
+    description: >-
+      Whether to enable the Memory plugin to collect memory usage metrics.
+  enable_processes_plugin:
+    name: Enable Processes plugin
+    description: >-
+      Whether to enable the Processes plugin to collect process metrics.
+  enable_sensors_plugin:
+    name: Enable Sensors plugin
+    description: >-
+      Whether to enable the Sensors plugin to collect hardware sensor metrics.
+  enable_smart_plugin:
+    name: Enable SMART plugin
+    description: >-
+      Whether to enable the SMART plugin to collect disk health metrics.
+  enable_swap_plugin:
+    name: Enable Swap plugin
+    description: >-
+      Whether to enable the Swap plugin to collect swap usage metrics.
+  enable_uptime_plugin:
+    name: Enable Uptime plugin
+    description: >-
+      Whether to enable the Uptime plugin to collect system uptime metrics.
+  enable_users_plugin:
+    name: Enable Users plugin
+    description: >-
+      Whether to enable the Users plugin to collect logged in users metrics.      
   enable_mqtt_plugin:
     name: Enable MQTT plugin
     description: >-

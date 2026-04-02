@@ -9,6 +9,7 @@ Collectd is a daemon which collects system performance statistics periodically a
 - df
 - disk
 - entropy
+- interface
 - irq
 - load
 - memory

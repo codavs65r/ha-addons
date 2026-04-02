@@ -1,5 +1,5 @@
 name: Collectd
-version: 2026.4.0
+version: 2026.4.1
 slug: collectd
 description: >-
   Collectd is a daemon which collects system performance statistics periodically and provides mechanisms to store the values in a variety of ways, for example in RRD files.
@@ -28,6 +28,21 @@ services:
     - mqtt:want
 options:
   hostname: homeassistant
+  enable_cpu_plugin: true
+  enable_cpufreq_plugin: true
+  enable_df_plugin: true
+  enable_disk_plugin: true
+  enable_entropy_plugin: true
+  enable_interface_plugin: true
+  enable_irq_plugin: true
+  enable_load_plugin: true
+  enable_memory_plugin: true
+  enable_processes_plugin: true
+  enable_sensors_plugin: true
+  enable_smart_plugin: true
+  enable_swap_plugin: true
+  enable_uptime_plugin: true
+  enable_users_plugin: true
   enable_mqtt_plugin: false
   mqtt_user: homeassistant
   mqtt_password: homeassistant
