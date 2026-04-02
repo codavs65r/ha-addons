@@ -16,4 +16,4 @@ RUN \
 COPY rootfs /
 
 # Shared directory
-ADD /root/config /opt/config
+ADD /homeassistant /opt/config
