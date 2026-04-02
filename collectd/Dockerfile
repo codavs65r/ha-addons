@@ -16,4 +16,4 @@ RUN \
 COPY rootfs /
 
 # Shared directory
-ADD . /opt/config
+VOLUME /homeassistant /opt/config

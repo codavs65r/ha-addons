@@ -11,7 +11,7 @@ MQTT_PASSWORD=$(bashio::config 'mqtt_password')
 
 if [ "${ENABLE_MQTT_PLUGIN}" == "false" ]
 then
-    bashio::log.info "MQTT plugin is disabled, skipping sensors configuration generation"
+    #bashio::log.info "MQTT plugin is disabled, skipping sensors configuration generation"
     exit 0
 fi
 
@@ -20,7 +20,7 @@ ls /opt/config/
 
 if [ -f "/opt/config/collectd.yaml" ]
 then
-    bashio::log.info "Sensors configuration already exists, skipping generation"
+    #bashio::log.info "Sensors configuration already exists, skipping generation"
     exit 0
 fi
 
