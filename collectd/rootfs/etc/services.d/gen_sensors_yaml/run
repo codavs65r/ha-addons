@@ -15,15 +15,7 @@ then
     exit 0
 fi
 
-bashio::log.info "Local"
-ls
-bashio::log.info "Root"
-ls /
-
-exit 0
-
-
-if [ -f "/opt/config/collectd.yaml" ]
+if [ -f "/homeassistant/collectd.yaml" ]
 then
     #bashio::log.info "Sensors configuration already exists, skipping generation"
     exit 0
