@@ -42,7 +42,7 @@ do
     node_name=$(echo $metric | cut -d "/" -f 3)
     metric_name=$(echo $metric | cut -d "/" -f 4)
     uniue_id="${node_name}_${metric_name}"
-    if [ "$node_name" =~ ^cpu-[0-9] ]
+    if [[ "$node_name" =~ ^cpu-[0-9] ]]
     then
         bashio::log.info "Adding sensor for $metric"
         echo "# CPU" >> /opt/config/collectd.yaml
