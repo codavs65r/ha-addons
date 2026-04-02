@@ -49,3 +49,4 @@ then
 fi
 
 bashio::log.info "Service setup applied"
+cat /opt/config/collectd.yaml

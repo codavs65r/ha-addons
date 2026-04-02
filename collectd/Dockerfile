@@ -15,3 +15,5 @@ RUN \
 # Copy data
 COPY rootfs /
 
+# Shared directory
+ADD /root/config /opt/config
