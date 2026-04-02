@@ -396,11 +396,11 @@ sensor:
       manufacturer: BMAX
 
 # Temperature
-  - name: Temp 1  
+  - name: CPU Temp 1  
     state_topic: collectd/denethor/sensors-coretemp-isa-0000/temperature-temp1
     unit_of_measurement: °C
     value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
-    unique_id: temp_1
+    unique_id: cpu_temp_1
     state_class: measurement
     device_class: temperature
     icon: 'mdi:thermometer'
@@ -409,11 +409,11 @@ sensor:
       name: Denethor
       model: B1Pro
       manufacturer: BMAX
-  - name: Temp 2
+  - name: CPU Temp 2
     state_topic: collectd/denethor/sensors-coretemp-isa-0000/temperature-temp2
     unit_of_measurement: °C
     value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
-    unique_id: temp_2
+    unique_id: cpu_temp_2
     state_class: measurement
     device_class: temperature
     icon: 'mdi:thermometer'
@@ -422,11 +422,11 @@ sensor:
       name: Denethor
       model: B1Pro
       manufacturer: BMAX      
-  - name: Temp 3
+  - name: CPU Temp 3
     state_topic: collectd/denethor/sensors-coretemp-isa-0000/temperature-temp3
     unit_of_measurement: °C
     value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
-    unique_id: temp_3
+    unique_id: cpu_temp_3
     state_class: measurement
     device_class: temperature
     icon: 'mdi:thermometer'
@@ -435,7 +435,20 @@ sensor:
       name: Denethor
       model: B1Pro
       manufacturer: BMAX
-
+  - name: CPU Socket Temp 1
+    state_topic: collectd/denethor/sensors-acpitz-acpi-0/temperature-temp1
+    unit_of_measurement: °C
+    value_template: "{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}"
+    unique_id: cpu_socket_temp_1
+    state_class: measurement
+    device_class: temperature
+    icon: 'mdi:thermometer'
+    device:
+      identifiers: denethor
+      name: Denethor
+      model: B1Pro
+      manufacturer: BMAX
+      
 # Interface
   - name: Interface enp2s0 RX
     state_topic: collectd/denethor/interface-enp2s0/if_octets
