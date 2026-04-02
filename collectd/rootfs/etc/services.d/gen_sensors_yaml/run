@@ -15,6 +15,9 @@ then
     exit 0
 fi
 
+ls /opt/config/
+
+
 if [ -f "/opt/config/collectd.yaml" ]
 then
     bashio::log.info "Sensors configuration already exists, skipping generation"
