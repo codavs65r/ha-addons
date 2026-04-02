@@ -34,7 +34,7 @@ device="      identifiers: collectd
 bashio::log.info "Generating sensors configuration for Home Assistant: $YAML_FILE"
 echo "sensor:" > $YAML_FILE
 
-mosquitto_sub -h core-mosquitto -p 1883 -u $MQTT_USER -P $MQTT_PASSWORD -t collectd/$HA_HOSTNAME/# -v -C 200 | awk '{print $1}' | sort | uniq > /tmp/metrics.txt`
+mosquitto_sub -h core-mosquitto -p 1883 -u $MQTT_USER -P $MQTT_PASSWORD -t collectd/$HA_HOSTNAME/# -v -C 200 | awk '{print $1}' | sort | uniq > /tmp/metrics.txt
 metrics=`cat /tmp/metrics.txt`
 
 for metric in $metrics:
