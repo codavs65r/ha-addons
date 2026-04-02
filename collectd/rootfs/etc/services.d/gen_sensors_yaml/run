@@ -1,0 +1,53 @@
+#!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# collectd setup
+# ==============================================================================
+
+HA_HOSTNAME=$(bashio::config 'hostname')
+ENABLE_MQTT_PLUGIN=$(bashio::config 'enable_mqtt_plugin')
+MQTT_USER=$(bashio::config 'mqtt_user')
+MQTT_PASSWORD=$(bashio::config 'mqtt_password')
+
+if [ "${ENABLE_MQTT_PLUGIN}" == "false" ]
+then
+    exit 0
+fi
+
+if [ -f "/opt/config/collectd.yaml" ]
+then
+    exit 0
+fi
+
+sleep 2
+
+MANUFACTURER=$(uname)
+device="      identifiers: collectd
+      name: Collectd
+      model: $HA_HOSTNAME
+      manufacturer: $MANUFACTURER"
+
+echo "sensor:" > /opt/config/collectd.yaml
+
+metrics=`mosquitto_sub -h core-mosquitto -p 1883 -u $MQTT_USER -P $MQTT_PASSWORD -t collectd/$HA_HOSTNAME/# -v -C 200 | awk '{print $1}' | sort | uniq`
+
+for metric in metrics:
+do
+    node_name=$(echo $metric | cut -d "/" -f 3)
+    metric_name=$(echo $metric | cut -d "/" -f 4)
+    uniue_id="${node_name}_${metric_name}"
+    if [ "$node_name" =~ ^cpu-[0-9] ]
+    then
+        echo "# CPU" >> /opt/config/collectd.yaml
+        sensor="  - name: $node_name $metric_name
+    state_topic: $metric
+    unit_of_measurement: '%'
+    value_template: \"{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}\"
+    unique_id: $uniue_id
+    state_class: measurement
+    icon: 'mdi:cpu-64-bit'
+    device:
+$device"
+        echo $sensor >> /opt/config/collectd.yaml
+    fi
+done
