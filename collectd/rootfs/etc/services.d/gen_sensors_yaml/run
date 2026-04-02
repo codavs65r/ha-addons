@@ -15,7 +15,9 @@ then
     exit 0
 fi
 
-if [ -f "/homeassistant/collectd.yaml" ]
+YAML_FILE="/homeassistant/collectd.yaml"
+
+if [ -f "$YAML_FILE" ]
 then
     #bashio::log.info "Sensors configuration already exists, skipping generation"
     exit 0
@@ -29,8 +31,8 @@ device="      identifiers: collectd
       model: $HA_HOSTNAME
       manufacturer: $MANUFACTURER"
 
-bashio::log.info "Generating sensors configuration for Home Assistant: /opt/config/collectd.yaml"
-echo "sensor:" > /opt/config/collectd.yaml
+bashio::log.info "Generating sensors configuration for Home Assistant: $YAML_FILE"
+echo "sensor:" > $YAML_FILE
 
 metrics=`mosquitto_sub -h core-mosquitto -p 1883 -u $MQTT_USER -P $MQTT_PASSWORD -t collectd/$HA_HOSTNAME/# -v -C 200 | awk '{print $1}' | sort | uniq`
 
@@ -42,7 +44,7 @@ do
     if [[ "$node_name" =~ ^cpu-[0-9] ]]
     then
         bashio::log.info "Adding sensor for $metric"
-        echo "# CPU" >> /opt/config/collectd.yaml
+        echo "# CPU" >> $YAML_FILE
         sensor="  - name: $node_name $metric_name
     state_topic: $metric
     unit_of_measurement: '%'
@@ -52,6 +54,6 @@ do
     icon: 'mdi:cpu-64-bit'
     device:
 $device"
-        echo $sensor >> /opt/config/collectd.yaml
+        echo $sensor >> $YAML_FILE
     fi
 done
