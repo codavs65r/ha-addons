@@ -1,5 +1,5 @@
 name: Collectd
-version: 2026.4.1
+version: 2026.4.2
 slug: collectd
 description: >-
   Collectd is a daemon which collects system performance statistics periodically and provides mechanisms to store the values in a variety of ways, for example in RRD files.
@@ -55,6 +55,21 @@ options:
   prometheus_port: 9103
 schema:
   hostname: str
+  enable_cpu_plugin: bool
+  enable_cpufreq_plugin: bool
+  enable_df_plugin: bool
+  enable_disk_plugin: bool
+  enable_entropy_plugin: bool
+  enable_interface_plugin: bool
+  enable_irq_plugin: bool
+  enable_load_plugin: bool
+  enable_memory_plugin: bool
+  enable_processes_plugin: bool
+  enable_sensors_plugin: bool
+  enable_smart_plugin: bool
+  enable_swap_plugin: true
+  enable_uptime_plugin: true
+  enable_users_plugin: true  
   enable_mqtt_plugin: bool
   mqtt_user: str?
   mqtt_password: str?
