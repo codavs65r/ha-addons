@@ -12,7 +12,8 @@ RUN \
         collectd-mqtt \
         mosquitto-clients
 
-RUN --mount=from=/homeassistant,target=/opt/config
-
 # Copy data
 COPY rootfs /
+
+# Shared directory
+VOLUME /homeassistant /opt/config
