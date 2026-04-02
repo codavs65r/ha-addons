@@ -2,7 +2,7 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 # Setup base
-RUN \
+RUN --mount=type=bind,source=/homeassistant,target=/opt/config \
     set -x \
     && apk add --no-cache \
         collectd \
@@ -14,6 +14,3 @@ RUN \
 
 # Copy data
 COPY rootfs /
-
-# Shared directory
-VOLUME /homeassistant /opt/config
