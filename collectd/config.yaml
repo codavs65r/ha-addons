@@ -1,5 +1,5 @@
 name: Collectd
-version: 0.6.43
+version: 0.6.44
 slug: collectd
 description: >-
   Collectd is a daemon which collects system performance statistics periodically and provides mechanisms to store the values in a variety of ways, for example in RRD files.

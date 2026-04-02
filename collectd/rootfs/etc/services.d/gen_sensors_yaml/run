@@ -9,28 +9,28 @@ ENABLE_MQTT_PLUGIN=$(bashio::config 'enable_mqtt_plugin')
 MQTT_USER=$(bashio::config 'mqtt_user')
 MQTT_PASSWORD=$(bashio::config 'mqtt_password')
 
-if [ '${ENABLE_MQTT_PLUGIN}' == 'false' ]
+if [ "${ENABLE_MQTT_PLUGIN}" == "false" ]
 then
-    #bashio::log.info 'MQTT plugin is disabled, skipping sensors configuration generation'
+    #bashio::log.info "MQTT plugin is disabled, skipping sensors configuration generation"
     exit 0
 fi
 
-JSON_FILE='/homeassistant/collectd.json'
-YAML_FILE='/homeassistant/collectd.yaml'
+JSON_FILE="/homeassistant/collectd.json"
+YAML_FILE="/homeassistant/collectd.yaml"
 
-if [ -f '$YAML_FILE' ]
+if [ -f "$YAML_FILE" ]
 then
-    #bashio::log.info 'Sensors configuration already exists, skipping generation'
+    #bashio::log.info "Sensors configuration already exists, skipping generation"
     exit 0
 fi
 
 sleep 2
 
 MANUFACTURER=$(uname)
-device='{'identifiers': 'collectd', 'name': 'Collectd', 'model': '$HA_HOSTNAME', 'manufacturer': '$MANUFACTURER'}'
+device="{'identifiers': 'collectd', 'name': 'Collectd', 'model': '$HA_HOSTNAME', 'manufacturer': '$MANUFACTURER'}"
 
-bashio::log.info 'Generating sensors configuration for Home Assistant: $YAML_FILE'
-echo {'sensor':[ > $JSON_FILE
+bashio::log.info "Generating sensors configuration for Home Assistant: $YAML_FILE"
+echo "{'sensor':[" > $JSON_FILE
 
 mosquitto_sub -h core-mosquitto -p 1883 -u $MQTT_USER -P $MQTT_PASSWORD -t collectd/$HA_HOSTNAME/# -v -C 200 | awk '{print $1}' | sort | uniq > /tmp/metrics.txt
 metrics=`cat /tmp/metrics.txt`
@@ -42,9 +42,10 @@ do
     uniue_id='${node_name}_${metric_name}'
     if [[ '$node_name' =~ ^cpu-[0-9] ]]
     then
-        bashio::log.info 'Adding sensor for $metric'
+        bashio::log.info "Adding sensor for $metric"
         sensor="{'ame': '$node_name $metric_name', 'state_topic': '$metric', 'unit_of_measurement': '%', 'value_template': '\'{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}\'', 'unique_id': '$uniue_id', 'state_class': 'measurement', 'icon': 'mdi:cpu-64-bit', 'device': $device}"
         echo $sensor >> $JSON_FILE
     fi
 done
-echo ]} >> $JSON_FILE
+echo "]}" >> $JSON_FILE
+cat $JSON_FILE | jq
