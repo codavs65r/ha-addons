@@ -27,6 +27,7 @@ device="      identifiers: collectd
       model: $HA_HOSTNAME
       manufacturer: $MANUFACTURER"
 
+bashio::log.info "Generating sensors configuration for Home Assistant: /opt/config/collectd.yaml"
 echo "sensor:" > /opt/config/collectd.yaml
 
 metrics=`mosquitto_sub -h core-mosquitto -p 1883 -u $MQTT_USER -P $MQTT_PASSWORD -t collectd/$HA_HOSTNAME/# -v -C 200 | awk '{print $1}' | sort | uniq`
@@ -38,6 +39,7 @@ do
     uniue_id="${node_name}_${metric_name}"
     if [ "$node_name" =~ ^cpu-[0-9] ]
     then
+        bashio::log.info "Adding sensor for $metric"
         echo "# CPU" >> /opt/config/collectd.yaml
         sensor="  - name: $node_name $metric_name
     state_topic: $metric
