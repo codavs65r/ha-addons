@@ -39,8 +39,8 @@ for metric in $metrics:
 do
     node_name=$(echo $metric | cut -d '/' -f 3)
     metric_name=$(echo $metric | cut -d '/' -f 4)
-    uniue_id='${node_name}_${metric_name}'
-    if [[ '$node_name' =~ ^cpu-[0-9] ]]
+    uniue_id="${node_name}_${metric_name}"
+    if [[ "$node_name" =~ ^cpu-[0-9] ]]
     then
         bashio::log.info "Adding sensor for $metric"
         sensor="{'ame': '$node_name $metric_name', 'state_topic': '$metric', 'unit_of_measurement': '%', 'value_template': '\'{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}\'', 'unique_id': '$uniue_id', 'state_class': 'measurement', 'icon': 'mdi:cpu-64-bit', 'device': $device}"
