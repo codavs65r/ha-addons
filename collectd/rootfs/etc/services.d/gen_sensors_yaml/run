@@ -26,10 +26,12 @@ fi
 sleep 2
 
 MANUFACTURER=$(uname)
-device="      identifiers: collectd
+device=$(cat << 'EOF'      identifiers: collectd
       name: Collectd
       model: $HA_HOSTNAME
-      manufacturer: $MANUFACTURER"
+      manufacturer: $MANUFACTURER
+EOF
+)
 
 bashio::log.info "Generating sensors configuration for Home Assistant: $YAML_FILE"
 echo "sensor:" > $YAML_FILE
@@ -45,8 +47,8 @@ do
     if [[ "$node_name" =~ ^cpu-[0-9] ]]
     then
         bashio::log.info "Adding sensor for $metric"
-        echo "# CPU" >> $YAML_FILE
-        sensor="  - name: $node_name $metric_name
+        echo "# CPU $node_name $metric_name" >> $YAML_FILE
+        sensor=$(cat << 'EOF'  - name: $node_name $metric_name
     state_topic: $metric
     unit_of_measurement: '%'
     value_template: \"{{ (value.split(':')[1].split('\0')[0] | float(0)) | round(1) }}\"
@@ -54,7 +56,9 @@ do
     state_class: measurement
     icon: 'mdi:cpu-64-bit'
     device:
-$device"
+$device
+EOF
+)
         echo $sensor >> $YAML_FILE
     fi
 done
